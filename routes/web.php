@@ -16,6 +16,19 @@ The laravel finds the name of the file inside views file, which one has the welc
 */
 
 Route::get('/ninjas',function(){
-    return view('ninjas.index');
+    // lets create an array of 2 items
+    $ninjas = [
+        ["name" => "mario", "skill" => 75, "id" => "1"],
+        ["name" => "luigi", "skill" => 45, "id" => "2"],
+    ];
+
+    return view('ninjas.index', ["greeting" => "hello", "ninjas" => $ninjas]); //we can pass index value inside the index page
     // to enter the file name inside another directory, simply use .
+});
+
+// impliment route wildcards for id by using {id}
+Route::get('/ninjas/{id}',function($id){
+
+    return view('ninjas.show', ["id" => $id]); //we grab the id from the argument passed by the user
+    // to enter the file name inside another directory, simply use ., which in this one, we want to forward it to show file
 });

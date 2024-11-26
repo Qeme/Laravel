@@ -7,8 +7,22 @@
 <body>
     <h2>Currently Available Ninjas</h2>
 
+    {{-- we want to pass dynamic value $ which will return a string hello --}}
+    <p>{{ $greeting }}</p> 
+
+    {{-- why not we put the array items inside the index page --}}
     <ul>
-        <li>Ninjas Here</li>
+        <li>
+            {{-- remember to always use dynamic value even in path --}}
+            <a href="/ninjas/{{$ninjas[0]["id"]}}">
+                {{ $ninjas[0]["name"] }}
+            </a>
+        </li>
+        <li>
+            <a href="/ninjas/{{$ninjas[1]["id"]}}">
+                {{ $ninjas[1]["name"] }}
+            </a>
+        </li>
     </ul>
 </body>
 </html>
