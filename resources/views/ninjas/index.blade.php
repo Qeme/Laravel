@@ -1,10 +1,5 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ninja Networks | Home</title>
-</head>
-<body>
+{{-- to wrap all of these into layout components, use x-layout(component name) tag --}}
+<x-layout>
     <h2>Currently Available Ninjas</h2>
 
     {{-- impliment if statement/blade directives like react which render certain part if the if statement equals to true --}}
@@ -26,5 +21,4 @@
         @endforeach
         
     </ul>
-</body> 
-</html>
+</x-layout>

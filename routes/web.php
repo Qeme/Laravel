@@ -26,6 +26,12 @@ Route::get('/ninjas',function(){
     // to enter the file name inside another directory, simply use .
 });
 
+// previously there an error where id - create (argument), means we need to specify specific API not dynamic one
+// it must be above the wildcare {id} as laravel see the API from top to bottom
+Route::get('/ninjas/create', function () {
+    return view('ninjas.create');
+});
+
 // impliment route wildcards for id by using {id}
 Route::get('/ninjas/{id}',function($id){
 
