@@ -6,6 +6,8 @@ apply the layout and slot to wrap all the other pages ~ reduce duplication --}}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ninja Networks</title>
+
+    @vite('resources/css/app.css')
 </head>
 <body>
     
