@@ -14,10 +14,16 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+        // this one is automatically been executed
 
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        // now we add the other seeders here (manageable)
+        $this->call([
+            NinjaSeeder::class,
         ]);
     }
 }
