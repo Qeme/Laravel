@@ -13,3 +13,5 @@ class Ninja extends Model
     /** @use HasFactory<\Database\Factories\NinjaFactory> */
     use HasFactory;
 }
+
+// MVC : Model(setup), View(response), Controller(intermediate) which basically keeps all the function handler in one place far from API routes

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NinjaController; //we call the controller from NinjaController
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,16 +16,9 @@ above cases, after the user get the /, it will return the page of "welcome" by u
 The laravel finds the name of the file inside views file, which one has the welcome name in it and execute the page
 */
 
-Route::get('/ninjas',function(){
-    // lets create an array of 2 items
-    $ninjas = [
-        ["name" => "mario", "skill" => 75, "id" => "1"],
-        ["name" => "luigi", "skill" => 45, "id" => "2"],
-    ];
-
-    return view('ninjas.index', ["greeting" => "hello", "ninjas" => $ninjas]); //we can pass index value inside the index page
-    // to enter the file name inside another directory, simply use .
-});
+// using NinjaController::class is a way to simplified the long path that you need to write it on
+// write it reference (function) after it
+Route::get('/ninjas',[NinjaController::class, 'index']);
 
 // previously there an error where id - create (argument), means we need to specify specific API not dynamic one
 // it must be above the wildcare {id} as laravel see the API from top to bottom
