@@ -17,7 +17,10 @@ class NinjaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            //we can pass the dummy values for testing here instead of type it one by one in artisan tinker
+            'name' => fake()->name(),
+            'skill' => fake()->numberBetween(0,100),
+            'bio' => fake()->realText(500)
         ];
     }
 }
