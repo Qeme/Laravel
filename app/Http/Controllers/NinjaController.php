@@ -14,8 +14,8 @@ class NinjaController extends Controller
         //use ninjas like USE NINJAS and then grab ALL the values
         // $ninjas = Ninja::all();
 
-        // why not we sort them in desc first then we get all
-        $ninjas = Ninja::orderBy('created_at', 'desc')->get();
+        // instead of showing all the ninjas, why not we limit them by using pagination
+        $ninjas = Ninja::orderBy('created_at', 'desc')->paginate(10);
 
         // checking first where is the file named index inside ninjas dir, then it pass ninjas value
         return view('ninjas.index', ["ninjas" => $ninjas]);
@@ -35,7 +35,7 @@ class NinjaController extends Controller
     public function create() {
         //route --> /ninjas/create
         //render a create view (with web form) to users
-        
+
         return view('ninjas.create');
     }
 
