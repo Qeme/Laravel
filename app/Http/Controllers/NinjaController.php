@@ -24,11 +24,19 @@ class NinjaController extends Controller
     public function show($id) {
         //route --> /ninjas/{id} (in react we put it /:id)
         //fetch a single record & pass into show view
+
+        // get the ninja first by using findOrFail(), which will give an error if not found the data based on $id
+        $ninja = Ninja::findOrFail($id);
+
+        return view('ninjas.show', ["ninja" => $ninja]); //we grab the id from the argument passed by the user
+        // to enter the file name inside another directory, simply use ., which in this one, we want to forward it to show file
     }
 
     public function create() {
         //route --> /ninjas/create
         //render a create view (with web form) to users
+        
+        return view('ninjas.create');
     }
 
     public function store() {

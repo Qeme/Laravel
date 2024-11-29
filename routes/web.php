@@ -22,13 +22,7 @@ Route::get('/ninjas',[NinjaController::class, 'index']);
 
 // previously there an error where id - create (argument), means we need to specify specific API not dynamic one
 // it must be above the wildcare {id} as laravel see the API from top to bottom
-Route::get('/ninjas/create', function () {
-    return view('ninjas.create');
-});
+Route::get('/ninjas/create',[NinjaController::class, 'create']);
 
 // impliment route wildcards for id by using {id}
-Route::get('/ninjas/{id}',function($id){
-
-    return view('ninjas.show', ["id" => $id]); //we grab the id from the argument passed by the user
-    // to enter the file name inside another directory, simply use ., which in this one, we want to forward it to show file
-});
+Route::get('/ninjas/{id}',[NinjaController::class, 'show']);
