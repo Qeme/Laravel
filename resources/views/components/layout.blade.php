@@ -15,8 +15,9 @@ apply the layout and slot to wrap all the other pages ~ reduce duplication --}}
     <header>
         <nav>
             <h1>Ninja Networks</h1>
-            <a href="/ninjas">All Ninjas</a>
-            <a href="/ninjas/create">Create New Ninjas</a>
+            {{-- instead of traditional way of writing the path, we can use route() to point to the newly named routes--}}
+            <a href="{{ route('ninjas.index') }}">All Ninjas</a> 
+            <a href="{{ route('ninjas.create') }}">Create New Ninjas</a>
         </nav>
     </header>
 
