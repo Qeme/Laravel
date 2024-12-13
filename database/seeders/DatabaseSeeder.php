@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
 
         // now we add the other seeders here (manageable)
         $this->call([
+            //the reason why DojosSeeder should be on the top as we want to 
+            //randomly generate data for them and pass it to ninjas for foreign keys to work
+            DojosSeeder::class, 
             NinjaSeeder::class,
         ]);
     }

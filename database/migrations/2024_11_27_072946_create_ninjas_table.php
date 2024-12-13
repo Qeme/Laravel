@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('name');
             $table->integer('skill');
             $table->text('bio');
+            // create a foreign key relation
+            /* 1. constrained() provides a strict rule the column which relate to each other in diff tables [the ninja must have dojo valid id]
+               2. onDelete('cascade') which will remove the ninjas data that related to the deleted dojo  */
+            $table->foreignId('dojo_id')->constrained()->onDelete('cascade');
         });
     }
 
