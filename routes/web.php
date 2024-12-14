@@ -29,3 +29,6 @@ Route::get('/ninjas/{id}',[NinjaController::class, 'show'])->name('ninjas.show')
 
 // handle the post request 
 Route::post('/ninjas', [NinjaController::class, 'store'])->name('ninjas.store');
+
+// handle the delete request for specific ninja
+Route::delete('/ninjas/{id}', [NinjaController::class, 'destroy'])->name('ninjas.destroy');

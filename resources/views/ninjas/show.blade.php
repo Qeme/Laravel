@@ -16,5 +16,14 @@
     <p><strong>About the Dojo:</strong></p>
     <p>{{ $ninja->dojo->description }}</p>
   </div>
+
+  {{-- we put the form delete button here + add the parameter for wildcard--}}
+  <form action="{{ route('ninjas.destroy', $ninja->id) }}" method="POST"> {{-- form doesnt support 'delete', hence we use @method to convert it--}}
+    {{-- add csrf to prevent malicious attack --}}
+    @csrf
+    @method('DELETE')
+
+    <button type="submit" class="btn my-4">Delete Ninja</button>
+  </form>
   
 </x-layout>

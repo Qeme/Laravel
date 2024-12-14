@@ -63,4 +63,16 @@ class NinjaController extends Controller
         // as it finish, we then redirect user back to main menu
         return redirect()->route('ninjas.index');
     }
+
+    // destroy aka delete function which remove the specific ninja  by id
+    public function destroy($id){
+        // first find that specific id 
+        $ninja = Ninja::findOrFail($id);
+
+        // then delete
+        $ninja->delete();
+
+        // redirect this function to index page back
+        return redirect()->route('ninjas.index');
+    }
 }
