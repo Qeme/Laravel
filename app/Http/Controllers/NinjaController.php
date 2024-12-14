@@ -22,12 +22,12 @@ class NinjaController extends Controller
         return view('ninjas.index', ["ninjas" => $ninjas]);
     }
 
-    public function show($id) {
+    public function show(Ninja $ninja) {
         //route --> /ninjas/{id} (in react we put it /:id)
         //fetch a single record & pass into show view
 
-        // get the ninja first plus its corresponding dojo data [this is called eager loading] by using findOrFail(), which will give an error if not found the data based on $id
-        $ninja = Ninja::with('dojo')->findOrFail($id);
+        // we still need to include the dojo data; hence instead of using with() we can use load()
+        $ninja->load('dojo');
 
         return view('ninjas.show', ["ninja" => $ninja]); //we grab the id from the argument passed by the user
         // to enter the file name inside another directory, simply use ., which in this one, we want to forward it to show file
@@ -65,11 +65,8 @@ class NinjaController extends Controller
     }
 
     // destroy aka delete function which remove the specific ninja  by id
-    public function destroy($id){
-        // first find that specific id 
-        $ninja = Ninja::findOrFail($id);
-
-        // then delete
+    public function destroy(Ninja $ninja){
+        // laravel smartly find the specific ninja from the id argument, which we remove the other line of code (Route Model Binding)
         $ninja->delete();
 
         // redirect this function to index page back

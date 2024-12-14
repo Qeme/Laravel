@@ -25,10 +25,10 @@ Route::get('/ninjas',[NinjaController::class, 'index'])->name('ninjas.index'); /
 Route::get('/ninjas/create',[NinjaController::class, 'create'])->name('ninjas.create'); //now we naming the route
 
 // impliment route wildcards for id by using {id}
-Route::get('/ninjas/{id}',[NinjaController::class, 'show'])->name('ninjas.show'); //now we naming the route
+Route::get('/ninjas/{ninja}',[NinjaController::class, 'show'])->name('ninjas.show'); //now we naming the route
 
 // handle the post request 
 Route::post('/ninjas', [NinjaController::class, 'store'])->name('ninjas.store');
 
 // handle the delete request for specific ninja
-Route::delete('/ninjas/{id}', [NinjaController::class, 'destroy'])->name('ninjas.destroy');
+Route::delete('/ninjas/{ninja}', [NinjaController::class, 'destroy'])->name('ninjas.destroy');
