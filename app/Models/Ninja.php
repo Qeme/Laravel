@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ninja extends Model
 {
     // create a protected fillable ~ avoid mass assignment attack 
-    protected $fillable = ['name','skill','bio'];
+    protected $fillable = ['name','skill','bio','dojo_id']; //add dojo_id as required
 
     /** @use HasFactory<\Database\Factories\NinjaFactory> */
     use HasFactory;

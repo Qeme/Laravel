@@ -26,3 +26,6 @@ Route::get('/ninjas/create',[NinjaController::class, 'create'])->name('ninjas.cr
 
 // impliment route wildcards for id by using {id}
 Route::get('/ninjas/{id}',[NinjaController::class, 'show'])->name('ninjas.show'); //now we naming the route
+
+// handle the post request 
+Route::post('/ninjas', [NinjaController::class, 'store'])->name('ninjas.store');

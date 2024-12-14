@@ -1,9 +1,9 @@
 <x-layout>
     <h2>Create New Ninjas</h2>
-    <form action="" method="">
+    <form action="{{ route('ninjas.store') }}" method="POST">
         {{-- add tag csrf Cross-Site Request Forgery (CSRF) Protection --}}
         @csrf
-        
+
         <h2>Create a New Ninja</h2>
       
         <!-- ninja Name -->
