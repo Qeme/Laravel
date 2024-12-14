@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ninja;
+use App\Models\Dojos;
 use Illuminate\Http\Request;
 
 class NinjaController extends Controller
@@ -36,7 +37,11 @@ class NinjaController extends Controller
         //route --> /ninjas/create
         //render a create view (with web form) to users
 
-        return view('ninjas.create');
+        // we want to fetch all the dojos data when the user go to create page
+        $dojos = Dojos::all();
+
+        // then we pass the dojos as argument for view()
+        return view('ninjas.create', ["dojos" => $dojos]);
     }
 
     public function store() {
