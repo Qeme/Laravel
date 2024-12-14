@@ -61,7 +61,7 @@ class NinjaController extends Controller
         Ninja::create($validate);
 
         // as it finish, we then redirect user back to main menu
-        return redirect()->route('ninjas.index');
+        return redirect()->route('ninjas.index')->with('success', 'Ninja Created!'); //we use with() to pass the function with the respective message
     }
 
     // destroy aka delete function which remove the specific ninja  by id
@@ -73,6 +73,6 @@ class NinjaController extends Controller
         $ninja->delete();
 
         // redirect this function to index page back
-        return redirect()->route('ninjas.index');
+        return redirect()->route('ninjas.index')->with('success', 'Ninja Deleted!'); //we use with() to pass the function with the respective message
     }
 }

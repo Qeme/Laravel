@@ -10,6 +10,12 @@ apply the layout and slot to wrap all the other pages ~ reduce duplication --}}
     @vite('resources/css/app.css')
 </head>
 <body>
+    {{-- here we put the message flash by checking the session key == success --}}
+    @if (session('success'))
+        <div id="flash" class="p-4 text-center bg-green-50 text-green-500 font-bold">
+            {{ session('success') }}
+        </div>
+    @endif
     
     {{-- we apply nav --}}
     <header>
